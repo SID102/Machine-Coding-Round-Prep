@@ -14,29 +14,7 @@ This repository focuses on:
 
 ## 📌 Topics Covered
 
-### 🟢 Beginner
-- Tic Tac Toe
-- Snake and Ladder
-- Parking Lot System
-- Library Management System
-- ATM Design
-- Elevator System
-
-### 🟡 Intermediate
-- Splitwise
-- BookMyShow
-- Food Delivery System
-- Cab Booking System
-- Inventory Management System
-- Expense Sharing App
-
-### 🔴 Advanced
-- Rate Limiter
-- Notification Service
-- Kafka-like Queue
-- Logging Framework
-- Job Scheduler
-- Distributed Cache
+-- Parking Lot System
 
 ---
 
@@ -56,9 +34,4 @@ This repository focuses on:
 ```text
 Machine-Coding-Round-Prep/
 │
-├── Beginner/
-├── Intermediate/
-├── Advanced/
-├── Notes/
-├── UML/
-└── README.md
+├── Parking_Lot_System
