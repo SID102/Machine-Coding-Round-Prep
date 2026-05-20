@@ -1,0 +1,10 @@
+                                        ### Abstarct Class ###
+
+An abstract class in Java is a class that cannot be instantiated on its own and is meant to be subclassed by other classes.
+
+Subclasses must implement all abstract methods unless they are also abstract.
+
+Use it when you want to share code among closely related classes while enforcing a contract (via abstract methods)
+
+When you have a common base with shared behavior but some behavior varies by subclass (e.g., Vehicle in the Parking Lot problem)
+
