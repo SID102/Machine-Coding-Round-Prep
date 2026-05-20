@@ -8,3 +8,10 @@ Use it when you want to share code among closely related classes while enforcing
 
 When you have a common base with shared behavior but some behavior varies by subclass (e.g., Vehicle in the Parking Lot problem)
 
+                                    ### Public , Private , Protected ###
+
+Modifier	Same Class	Same Package	Subclass (Different Package)	Anywhere (Different Package)
+private	    ✅	        ❌	                ❌	                            ❌
+(default)	✅	        ✅	                ❌	                            ❌
+protected	✅	        ✅	                ✅	                            ❌
+public	    ✅	        ✅	                ✅	                            ✅                                    
