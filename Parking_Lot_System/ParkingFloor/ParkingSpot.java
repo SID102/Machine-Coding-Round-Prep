@@ -50,4 +50,12 @@ public class ParkingSpot {
         return spotType;
     }
 
+    public int getParkingSpotId(){
+        return id;
+    }
+
+    public Vehicle getVehicle(){
+        return vehicle;
+    }
+
 }
