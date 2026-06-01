@@ -8,6 +8,11 @@ public class ParkingSpot {
     private SpotType spotType;
     private Vehicle vehicle;
 
+    public ParkingSpot(int id,SpotType spotType){
+        this.id=id;
+        this.spotType=spotType;
+    }
+
     public ParkingSpot(int id,boolean occupied,SpotType spotType,Vehicle vehicle){
         this.id=id;
         this.occupied=occupied;

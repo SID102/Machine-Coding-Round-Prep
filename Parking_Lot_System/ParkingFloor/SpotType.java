@@ -1,7 +1,7 @@
 package Parking_Lot_System.ParkingFloor;
 
 // Represent the parking spot type
-enum SpotType{
+public enum SpotType{
     BIKE,
     COMPACT,
     LARGE

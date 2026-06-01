@@ -6,6 +6,10 @@ public abstract class Vehicle {
 
     protected VehicleType vehicleType;
 
+    public Vehicle(VehicleType vehicleType){
+        this.vehicleType=vehicleType;
+    }
+
     public Vehicle(String licenseNumber, VehicleType vehicleType){
         this.licenseNumber=licenseNumber;
         this.vehicleType=vehicleType;
