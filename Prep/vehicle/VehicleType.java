@@ -1,4 +1,4 @@
-package vehicle;
+package Prep.vehicle;
 
 enum VehicleType{
     BIKE,

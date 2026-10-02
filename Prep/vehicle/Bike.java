@@ -1,31 +1,31 @@
-package vehicle;
+package Prep.vehicle;
 
 import java.util.UUID;
 
-public class Car implements Vehicle{
-    
+public class Bike implements Vehicle{
+
     private final UUID vehicleId;
 
     private Integer spotId;
 
     private final String vehcileType;
 
-    public Car(){
-        this.vehcileType=VehicleType.CAR.name();
+    public Bike(){
         this.vehicleId=UUID.randomUUID();
+        this.vehcileType=VehicleType.BIKE.name();
     }
 
-    @Override 
+    @Override
     public void assignSpot(int spotId){
         this.spotId=spotId;
     }
 
-    @Override 
+    @Override
     public void removeSpot(){
         this.spotId=null;
     }
 
-    @Override 
+    @Override
     public int getSpotId(){
         return this.spotId;
     }
@@ -34,4 +34,5 @@ public class Car implements Vehicle{
     public UUID getVehicleId(){
         return this.vehicleId;
     }
+
 }

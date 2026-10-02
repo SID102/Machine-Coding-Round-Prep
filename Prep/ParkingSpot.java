@@ -1,3 +1,5 @@
+package Prep;
+
 import java.util.UUID;
 
 public class ParkingSpot{

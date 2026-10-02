@@ -1,6 +1,8 @@
-import vehicle.Vehicle;
-import vehicle.Car;
-import vehicle.Bike;
+package Prep;
+
+import Prep.vehicle.Vehicle;
+import Prep.vehicle.Car;
+import Prep.vehicle.Bike;
 
 public class Main {
     public static void main(String[] args){
