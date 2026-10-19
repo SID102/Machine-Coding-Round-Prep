@@ -1,40 +1,71 @@
-package Prep;
+import java.util.*;
 
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.UUID;
+public class ParkingLot{
 
-public class ParkingLot {
+    List<ParkingSpot> parkingSpots;
 
-    private List<ParkingSpot> parkingSpots;
+    PriorityQueue<ParkingSpot> emptySpots;
 
-    PriorityQueue<Integer> emptySpot=new PriorityQueue<>();
+    Map<String, ParkingSpot> vehicleToSpotMap;
 
-    public ParkingLot(){
-        //cureently considering 10 parking spots
-        for(int i=0;i<10;i++){
-            ParkingSpot parkingSpot=new ParkingSpot(i);
-            this.parkingSpots.add(parkingSpot);
-            emptySpot.offer(i);
+    ParkingLot(int capacity){
+        if(capacity<=0){
+            System.out.println("capacity can only be greater than 0");
+            return;
         }
-    }
+        parkingSpots=new ArrayList<>();
+        emptySpots = new PriorityQueue<>(
+                Comparator.comparingInt(ParkingSpot::getSpotId)
+        );
+        vehicleToSpotMap=new HashMap<>();
 
-    public int getEmptySpot(){
-        if(emptySpot.isEmpty()){
-            return -1;
+        for(int i=0;i<capacity;i++){
+            ParkingSpot spot=new ParkingSpot(i);
+            parkingSpots.add(spot);
+            emptySpots.add(spot);
         }
-        return emptySpot.poll();
+
     }
 
-    public void assignSpot(int spotId,UUID vehicleId){
-        ParkingSpot parkingSpot=this.parkingSpots.get(spotId);
-        parkingSpot.assignSpot(vehicleId);
+    public boolean isFull(){
+        return emptySpots.isEmpty();
     }
 
-    public void emptySpot(int spotId){
-        ParkingSpot parkingSpot=this.parkingSpots.get(spotId);
-        parkingSpot.emptySpot();
-        emptySpot.offer(spotId);
+    public int getParkingSpotId(String vehicleId){
+        if(vehicleToSpotMap.containsKey(vehicleId)){
+            return vehicleToSpotMap.get(vehicleId).getSpotId();
+        }
+        System.out.println("vehicle not parked");
+        return -1;
+    }
+
+    public void parkVehicle(Vehicle vehicle){
+        if(this.isFull()){
+            System.out.println("Parking lot is full");
+            return;
+        }
+        if(vehicleToSpotMap.containsKey(vehicle.getVehicleId())){
+            System.out.println("Vehicle already parked");
+            return;
+        }
+        ParkingSpot spot=emptySpots.poll();
+        spot.parkVehicle(vehicle.getVehicleId());
+        vehicleToSpotMap.put(vehicle.getVehicleId(),spot);
+    }
+
+    public void removeVehicle(String vehicleId){
+        if(!vehicleToSpotMap.containsKey(vehicleId)){
+            System.out.println("vehicle not parked");
+            return;
+        }
+        ParkingSpot spot=vehicleToSpotMap.get(vehicleId);
+        if(spot==null){
+            System.out.println("illegal spot");
+            return;
+        }
+        emptySpots.add(spot);
+        spot.emptySpot();
+        vehicleToSpotMap.remove(vehicleId);
     }
 
 }

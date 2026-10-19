@@ -1,29 +1,47 @@
-package Prep;
+public class ParkingSpot {
+    
+    private final Integer spotId;
 
-import java.util.UUID;
+    private String vehicleId;
 
-public class ParkingSpot{
-
-    private Integer spotId;
-
-    private UUID vehicleId;
-
-    ParkingSpot(Integer spotId){
+    ParkingSpot(int spotId){
         this.spotId=spotId;
         this.vehicleId=null;
+    }
+
+    ParkingSpot(int spotId,String vehicleId){
+        this.spotId=spotId;
+        this.vehicleId=vehicleId;
+    }
+
+    int getSpotId(){
+        return this.spotId;
+    }
+
+    String getVehicleId(){
+        return this.vehicleId;
     }
 
     public boolean isEmpty(){
         return this.vehicleId==null;
     }
 
-    public void assignSpot(UUID vehicleId){
+    public void parkVehicle(String vehicleId){
+        if(!this.isEmpty()){
+            System.out.println("spot already occupied");
+            return;
+        }
         this.vehicleId=vehicleId;
+        return;
     }
 
     public void emptySpot(){
+        if(this.isEmpty()){
+            System.out.println("spot is already vacant");
+            return;
+        }
         this.vehicleId=null;
+        return;
     }
 
 }
-

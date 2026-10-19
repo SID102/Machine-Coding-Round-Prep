@@ -1,53 +1,31 @@
-package Prep;
-
-import Prep.vehicle.Vehicle;
-import Prep.vehicle.Car;
-import Prep.vehicle.Bike;
-
 public class Main {
+    
     public static void main(String[] args){
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot=new ParkingLot(3);
+        Vehicle car1=new Car("car1");
+        Vehicle car2=new Car("car2");
+        Vehicle bike1=new Bike("bike1");
+        Vehicle bike2=new Bike("bike2");
 
-        Vehicle car1=new Car();
+        System.out.println("Parking car1:");
+        parkingLot.parkVehicle(car1);
+        System.out.println("Parking car2");
+        parkingLot.parkVehicle(car2);
+        System.out.println("Parking bike 1");
+        parkingLot.parkVehicle(bike1);
+        // this should fail
+        System.out.println("Parking bike 2");
+        parkingLot.parkVehicle(bike2);
+        //removing the vehicle 
+        System.out.println("removing car1");
+        parkingLot.removeVehicle(car1.getVehicleId());
+        //this should park now 
+        System.out.println("Parking bike 2");
+        parkingLot.parkVehicle(bike2);
 
-        int spotId=parkingLot.getEmptySpot();
+        System.out.println(parkingLot.getParkingSpotId(bike2.getVehicleId()));
 
-        if(spotId==-1){
-            System.out.println("Parking Lot is Full");
-        }
-        System.out.println("First vehicle spot id is:"+spotId);
-
-        parkingLot.assignSpot(spotId,car1.getVehicleId());
-        car1.assignSpot(spotId);
-
-        Vehicle bike1=new Bike();
-
-        int spot2=parkingLot.getEmptySpot();
-
-        if(spot2==-1){
-            System.out.println("Parking Lot is Full");
-        }
-
-        System.out.println("Second vehicle spot id is : "+spot2);
-
-        parkingLot.assignSpot(spot2,bike1.getVehicleId());
-        bike1.assignSpot(spot2);
-
-        parkingLot.emptySpot(car1.getSpotId());
-
-        Vehicle bike2=new Bike();
-
-        int spot3=parkingLot.getEmptySpot();
-
-        if(spot3==-1){
-            System.out.println("Parking lot is full");
-        }
-
-        System.out.println("third vehicle parking spot id is : "+spot3);
-
-        parkingLot.assignSpot(spot3,bike2.getVehicleId());
-
-        bike2.assignSpot(spot3);
 
     }
+
 }
