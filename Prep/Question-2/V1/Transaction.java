@@ -14,7 +14,8 @@ public class Transaction{
         this.transactionId=transactionId;
         this.customerId=customerId;
         this.amount=amount;
-        this.timestamp=timestamp;
+        this.timestamp=timestamp;,
+        dkddk
         this.type=type;
     }
 }
