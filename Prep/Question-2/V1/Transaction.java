@@ -15,7 +15,6 @@ public class Transaction{
         this.customerId=customerId;
         this.amount=amount;
         this.timestamp=timestamp;,
-        dkddk
         this.type=type;
     }
 }
